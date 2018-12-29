@@ -1,0 +1,9 @@
+div[name = "input1"] {
+  padding: 5px;
+  padding-left: 50px;
+}
+
+div[name = "maincontent"] {
+  padding-top: 100px;
+  padding-left: 20px;
+}
