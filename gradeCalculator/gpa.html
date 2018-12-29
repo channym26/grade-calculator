@@ -47,15 +47,14 @@ function getSections() {
     		for(var i=0;i < x;i++) {
         		output += "<div class='row'><div class='col-8 col-sm-6'><input placeholder='GPA' style='width:120px;' class='form-control'></div><div class='col-4 col-sm-6'><input placeholder='Credits' class='form-control' style='width:120px;'></div></div>";
     	    }
-    		output += "</div> <button type='button' onclick='calculate()' class='btn btn-dark'>Find my GPA!</button>";
+    		output += "</div> <button type='button' onclick='calculate("+ x +")' class='btn btn-dark'>Find my GPA!</button>";
     		document.getElementById("demo").innerHTML = output;
    	  }
 }
 
-function calculate() {
+function calculate(x) {
   var listRows = document.getElementsByTagName("input");
-  var sumGrade = 0 , sumWeight = 0;
-  var output = "";
+
   var foundNull = false;
   for(var i = 1; i <  listRows.length-1; i+=2) {
   	if(isNaN(listRows[i].value) || listRows[i].value == "" ) {
@@ -66,15 +65,17 @@ function calculate() {
   if(foundNull == true){
      document.getElementById("demo1").innerHTML = "<div class='alert alert-warning alert-dismissible fade show' role='alert'><strong>Uh - oh! Please look over the values that you've entered. It looks you may have left some boxes blank or entered non-numerical values.</strong> <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
   } else{
-  for(var i = 1; i <  listRows.length-1; i+=2) {
-    var grade = listRows[i].value;
-    var temp = i + 1;
-    var weight = parseFloat(listRows[temp].value);
-    sumGrade += (grade * weight);
-    sumWeight += weight;
-  }
-  output += sumGrade/sumWeight;
-  document.getElementById("demo1").innerHTML =  output + "%";
+    var sumGrade = 0;
+    var output = "";
+    for(var i = 1; i <  listRows.length-1; i+=2) {
+      var grade = listRows[i].value;
+      var temp = i + 1;
+      var weight = parseFloat(listRows[temp].value);
+      sumGrade += (grade * weight);
+    }
+    output += sumGrade/x;
+    var gpadisplay =  "<br><div class='input-group mb-3'><div class='input-group-prepend'><span class='input-group-text' id='basic-addon1'>GPA:</span></div><input type='text' class='form-control' placeholder='Username'value = " + output + " readonly></div>";
+    document.getElementById("demo1").innerHTML =  gpadisplay;
   }
 }
 </script>

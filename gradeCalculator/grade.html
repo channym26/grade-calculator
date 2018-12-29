@@ -76,7 +76,8 @@ function calculate() {
     sumWeight += weight;
   }
   output += sumGrade/sumWeight;
-  document.getElementById("demo1").innerHTML =  output + "%";
+  var gpadisplay =  "<br><div class='input-group mb-3'><div class='input-group-prepend'><span class='input-group-text' id='basic-addon1'>GPA:</span></div><input type='text' class='form-control' placeholder='Username'value = " + output + " readonly></div>";
+  document.getElementById("demo1").innerHTML =  gpadisplay;
   }
 }
 </script>
