@@ -7,10 +7,12 @@
 
 <html>
 <body>
+
 <a href="index.html"><h2>GradeCalulator</h2></a>
 
-<input id="numb1" placeholder="number of graded sections">
-<button type="button" onclick="getSections()">Begin calculating grade</button>
+<input id="numb1" placeholder="enter number of classes">
+
+<button type="button" onclick="getSections()">Begin calculating GPA</button>
 <div id="demo"></div>
 <p id = "gradeDisplay"></p>
 <script>
@@ -21,12 +23,12 @@ function getSections() {
     if(isNaN(x) || x == null || x == ""){
     	alert("please enter a number");
     } else {
-    		var output = "<div class='container'><div class='row align-items-center'><div class='col-6 col-md-4'><h3>Grade%</h3></div><div class='col-6 col-md-4'><h3>Weight%</h3></div></div>";
+    		var output = "<div class='container'><div class='row align-items-center'><div class='col-6 col-md-4'><h3>Class GPA</h3></div><div class='col-6 col-md-4'><h3>Credits</h3></div></div>";
     		document.getElementById("demo").innerHTML = output;
     		for(var i=0;i < x;i++) {
         		output += "<div class='row'><input><input></div>";
     	    }
-    		output += "</div> <button type='button' onclick='calculate()'>Find my grade!</button>";
+    		output += "</div> <button type='button' onclick='calculate()'>Find my GPA!</button>";
     		document.getElementById("demo").innerHTML = output;
    	  }
 }
