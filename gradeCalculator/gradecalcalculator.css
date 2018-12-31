@@ -7,3 +7,7 @@ div[name = "maincontent"] {
   padding-top: 100px;
   padding-left: 20px;
 }
+
+#main-head {
+  padding: 10px;
+}
