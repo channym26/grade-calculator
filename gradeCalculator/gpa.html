@@ -18,7 +18,7 @@
     <div class="row">
       <div class="col-6 col-md-4"></div>
       <div class="col-6 col-md-4" name = "maincontent">
-        <a href="index.html"><h2>Grade Calulator</h2></a>
+        <a href="index.html"><h2 id = "main-head">Grade Calulator</h2></a>
         <div class="row">
           <div class="col-8 col-sm-6">
               <input id="numb1" class="form-control"  placeholder="# of classes">
@@ -35,6 +35,7 @@
     <div class = "row">
 
 <script>
+
 function getSections() {
   var x, box;
   // Get the value of the input field with id="numb"
@@ -42,12 +43,12 @@ function getSections() {
     if(isNaN(x) || x == null || x == ""){
     	document.getElementById("demo").innerHTML = "<div class='alert alert-warning alert-dismissible fade show' role='alert'><strong>Uh - oh! Please look over the values that you've entered. It looks you may entered non-numerical values.</strong> <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
     } else {
-    		var output = "<br><div class='row'><div class='col-8 col-sm-6'>Class GPA</div><div class='col-4 col-sm-6'>Credits</div></div><div class='row'></div>";
+    		var output = "<br><div class='row'><div class='col-8 col-sm-6' name = 'input1'><h4>Class GPA</h4></div><div class='col-4 col-sm-6' name = 'input1'><h4>Credits</h4></div></div><div class='row'></div>";
     		document.getElementById("demo").innerHTML = output;
     		for(var i=0;i < x;i++) {
         		output += "<div class='row'><div class='col-8 col-sm-6' name = 'input1'><input placeholder='GPA' style='width:120px;' class='form-control'></div><div class='col-4 col-sm-6' name = 'input1'><input placeholder='Credits' class='form-control' style='width:120px;'></div></div>";
     	    }
-    		output += "</div> <button type='button' onclick='calculate("+ x +")' class='btn btn-dark'>Find my GPA!</button>";
+    		output += "</div> <button type='button' onclick='calculate("+ x +")' class='btn btn-dark' >Find my GPA!</button>";
     		document.getElementById("demo").innerHTML = output;
    	  }
 }
@@ -65,15 +66,16 @@ function calculate(x) {
   if(foundNull == true){
      document.getElementById("demo1").innerHTML = "<div class='alert alert-warning alert-dismissible fade show' role='alert'><strong>Uh - oh! Please look over the values that you've entered. It looks you may have left some boxes blank or entered non-numerical values.</strong> <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
   } else{
-    var sumGrade = 0;
+    var sumGrade = 0, sumcredit = 0;
     var output = "";
     for(var i = 1; i <  listRows.length-1; i+=2) {
       var grade = listRows[i].value;
       var temp = i + 1;
       var weight = parseFloat(listRows[temp].value);
       sumGrade += (grade * weight);
+      sumcredit += weight;
     }
-    output += sumGrade/x;
+    output += sumGrade/sumcredit;
     var gpadisplay =  "<br><div class='input-group mb-3'><div class='input-group-prepend'><span class='input-group-text' id='basic-addon1'>GPA:</span></div><input type='text' class='form-control' placeholder='Username'value = " + output + " readonly></div>";
     document.getElementById("demo1").innerHTML =  gpadisplay;
   }

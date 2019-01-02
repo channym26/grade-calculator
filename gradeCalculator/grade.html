@@ -18,7 +18,7 @@
     <div class="row">
       <div class="col-6 col-md-4"></div>
       <div class="col-6 col-md-4" name = "maincontent">
-        <a href="index.html"><h2>Grade Calulator</h2></a>
+        <a href="index.html"><h2 id = "main-head">Grade Calulator</h2></a>
         <div class="row">
           <div class="col-8 col-sm-6">
               <input id="numb1" class="form-control"  placeholder="# of graded sections">
@@ -44,12 +44,12 @@ function getSections() {
     if(isNaN(x) || x == null || x == ""){
       document.getElementById("demo").innerHTML = "<div class='alert alert-warning alert-dismissible fade show' role='alert'><strong>Uh - oh! Please look over the values that you've entered. It looks you may entered non-numerical values.</strong> <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
     } else {
-    		var output = "<br><div class='row'><div class='col-8 col-sm-6'>Grade%</div><div class='col-4 col-sm-6'>Weight%</div></div><div class='row'></div>";
+    		var output = "<br><div class='row'><div class='col-8 col-sm-6' name = 'input1'><h4>Grade%</h4></div><div class='col-4 col-sm-6' name = 'input1'><h4>Weight%</h4></div></div><div class='row'></div>";
     		document.getElementById("demo").innerHTML = output;
     		for(var i=0;i < x;i++) {
         		output += "<div class='row'><div class='col-8 col-sm-6' name = 'input1'><input placeholder='Grade%' style='width:120px;' class='form-control'></div><div class='col-4 col-sm-6' name = 'input1'><input placeholder='Weight%' class='form-control' style='width:120px;'></div></div>";
     	    }
-    		output += "<button type='button' onclick='calculate()' class='btn btn-dark'>Find my grade!</button><br>";
+    		output += "<button type='button' onclick='calculate()' class='btn btn-dark' >Find my grade!</button><br>";
     		document.getElementById("demo").innerHTML = output;
    	  }
 }
