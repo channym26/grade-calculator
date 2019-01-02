@@ -1,6 +1,6 @@
 div[name = "input1"] {
   padding: 5px;
-  padding-left: 50px;
+  padding-left: 25px;
 }
 
 div[name = "maincontent"] {
@@ -14,7 +14,8 @@ div[name = "maincontent"] {
 
 
 #mainhead {
-  padding: 20px;
+  padding-bottom: 20px;
+  padding-left: 0px;
 }
 
 #resultcalc {
