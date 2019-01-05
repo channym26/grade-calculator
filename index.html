@@ -27,7 +27,9 @@
           <div class="col-4 col-sm-4">
             <button type="button" class="btn btn-dark" onclick="startcalculate('gpa')">College GPA</button>
           </div>
-        <div class="row" id = "displaystuff">
+        <div class="row" id = "aboutpage">
+          <hr>
+          <br>
           <p><b>Final Grade Calculator:</b>: Calculates final grade for a class based on weighted grading. </p>
           <p><b>GPA Calculator:</b>: Calculates college GPA based on credits and individual grades. </p>
          </div>
@@ -39,9 +41,10 @@
   function startcalculate(typecalc) {
     if (typecalc == "grade"){
        document.getElementById("displaystuff").innerHTML = "<div class='col-4 col-sm-5'><input id='numb1' class='form-control'  placeholder='# of sections'></div><div class='col-4 col-sm-3'><button type='button' class='btn btn-dark' onclick= 'getSections(&quot;Grade %&quot;,&quot;Weight %&quot;, &quot;Grade%&quot;)'>Begin calculating Grade</button></div><div id='demo'></div><br><div id='demo1'></div>";
-
+       document.getElementById("aboutpage").innerHTML = "";
     } else {
         document.getElementById("displaystuff").innerHTML = "<div class='col-4 col-sm-5'><input id='numb1' class='form-control'  placeholder='# of classes'></div><div class='col-4 col-sm-3'><button type='button' class='btn btn-dark' onclick='getSections(&quot;Class GPA&quot;, &quot;Credits&quot;, &quot;GPA&quot;)'>Begin calculating GPA</button></div><div id='demo'></div><br><div id='demo1'></div>";
+        document.getElementById("aboutpage").innerHTML = "";
     }
 
   }
